@@ -1,0 +1,12 @@
+CSS.container{
+   width: 1000px;
+   background-color: red;
+   margin: 0 auto;
+}.logo img {
+   width: 180px;
+   margin: 0 auto;
+   display: block;
+}.navbar {
+    background-color: #FFF;
+    width: 100%;
+}
