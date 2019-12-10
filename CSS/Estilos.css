@@ -1,0 +1,202 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	/*width: 1500px;*/
+	/*background-color: red;*/
+	margin: 0 auto;
+}
+
+.logo {
+	margin: 0 auto;
+}
+
+.container .logo img {
+	width: 150px;
+	margin: 0 auto;
+	display: block;
+}
+
+.menu {
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+.navbar ul {
+	margin: 0 auto;
+}
+
+.navbar-light .navbar-nav .nav-link {
+	color: black;
+	background-color: #f4f4f4;
+	margin: 5px;
+	font-family: 'Amatic SC', cursive;
+	font-size: 20px;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+	background: #B2DED6;
+}
+
+.dropdown-item {
+	font-family: 'Amatic SC', cursive;
+	font-size: 20px;
+}
+
+.dropdown-item:hover {
+	background: #B2DED6;
+}
+
+hr {
+	border-top: 3px solid black;
+	margin: 0;
+}
+
+.container .banner img {
+	width: 100%;
+	border: solid 7px #B2DED6;
+    margin-top: 10px;
+}
+
+h1 {
+	font-family: 'Amatic SC', cursive;
+	text-align: center;
+	align-content: center;
+	margin-top: 15px;
+	margin-bottom: 30px;
+	font-size: 50px;
+}
+
+.catalogo {
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+}
+
+.catalogo .container img {
+	width: 100%;
+	border: solid 2px #B2DED6;
+}
+
+.productos {
+	margin-bottom: 20px;
+}
+
+h3 {
+	font-family: 'Amatic SC', cursive;
+	color: black;
+	text-align: center;
+	margin: 5px;
+}
+
+p{
+	font-family: 'Amatic SC', cursive;
+	color: black;
+	text-align: center;
+	margin: 5px;
+	font-size: 20px;
+}
+
+.footer {
+	background: #B2DED6;
+	width: 100%;
+}
+
+.carrito {
+	font-size: 35px;
+	color: black;
+}
+
+a{
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.faq h1, h2, p {
+	font-family: 'Amatic SC', cursive;
+	text-align: center;
+	padding: 10px;
+	margin: 10px;
+}
+
+.faq {
+	margin-bottom: 20px;
+}
+
+
+.contacto h3 {
+	margin: 10px;
+	padding: 10px;
+}
+
+/*a ver....
+*/
+.formu{ 
+    min-height: 100vh;
+    min-height: 100vh;
+    margin: auto;
+    width: 50%;
+    max-width: 500px;
+   
+    padding: 30px;
+   
+}
+h2{
+    text-align: center;
+    margin-bottom: 10%;
+    
+}
+
+input{
+    display: block;
+    padding: 10px;
+    width: 100%;
+    margin: 30px 0;
+    
+}
+input[type="submit"]{
+    outline: 0;
+    background: rgb(66, 150, 134);
+    border: 0;
+    color: rgb(178, 220, 221);
+    opacity: 0.8;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-bottom: 0;
+}
+input[type="submit"]:hover{
+opacity: 1;
+}
+input[type="submit"]:active{
+    transform: scale(0.95);
+}
+input[type="reset"]{
+    outline: 0;
+    background: rgb(66, 150, 134);
+    border: 0;
+    color: rgb(178, 220, 221);
+    opacity: 0.8;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-bottom: 0;
+}
+input[type="reset"]:hover{
+opacity: 1;
+}
+input[type="reset"]:active{
+    transform: scale(0.95);
+}
+@media (max-width:480px){
+    .formu{
+        width: 95%;
+    }
+}
