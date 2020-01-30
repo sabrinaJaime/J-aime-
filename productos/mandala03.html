@@ -1,19 +1,3 @@
-<?php
-
-$productos = [
-
-	[
-		"imagen"=>"../css/imagenes/infantil4.jpg",
-		"titulo"=>"Elefante",
-		"precio"=>"$650",
-		"enlace"=>"../productos/infantil02.html"
-	],
-
-];
-
- ?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,11 +46,11 @@ $productos = [
           Categorías
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="cocina.php">Cocina</a>
-          <a class="dropdown-item" href="infantil.php">Infantil</a>
-          <a class="dropdown-item" href="frases.php">Frases</a>
-          <a class="dropdown-item" href="zen.php">Zen</a>
-          <a class="dropdown-item" href="musica.php">Música</a>
+          <a class="dropdown-item" href="../secciones/cocina.php">Cocina</a>
+          <a class="dropdown-item" href="../secciones/infantil.php">Infantil</a>
+          <a class="dropdown-item" href="../secciones/frases.php">Frases</a>
+          <a class="dropdown-item" href="../secciones/zen.php">Zen</a>
+          <a class="dropdown-item" href="../secciones/musica.php">Música</a>
         </div>
       </li>
       <li class="nav-item">
@@ -99,24 +83,31 @@ $productos = [
 	</div>
 	<!-----------------BANNER----------------------------->
 
-	<section class="catalogo">
-	<div class="container productos">
-		<h3>INFANTIL</h3>
-		<br>
+	<div class="container">
 		<div class="row">
-
-
-			<?php foreach ($productos as $key => $value): ?>
-				<div class="col-md-3 col-sm-12">
-					<img src="<?=$value["imagen"]?>" alt=" ">
-					<h3><a href="<?= $value['enlace'] ?>"><?= $value['titulo'] ?></a></h3>
-					<p><a href="<?= $value['enlace'] ?>"><?= $value['precio'] ?></a></p>
-				</div>
-			<?php endforeach; ?>
-
+			<div class="producto d-flex justify-content-around d-flex align-items-center">
+					<div class="col-md-6 col-sm-12">
+						<img src="../css/imagenes/zen3.jpg" style="width:100%;">
+					</div>
+					<div class="col-md-6 col-sm-12">
+						<h3 class="delproducto">Mandala 03</h3>
+						<br>
+						<h4 class="delproducto1">SKU: 0001</h4>
+						<br>
+						<h3 class="delproducto">$560</h3>
+						<br>
+						<h4 class="delproducto1">Cantidad:</h4>
+						<input type="number" class="formcantidad" name="cantidad" value="1">
+						<br>
+						<input type="button" class="boton" name="agregar al carrito" value="Agregar al carrito">
+						<br>
+						<h3 class="delproducto">Vinilos Decorativos</h3>
+						<br>
+						<h4 class="delproducto1">Vinilos para pared con diseño original ideal para decorar cualquier estancia de tu casa, ya sea un dormitorio infantil, tu habitación o un espacio común como el salón.</h4>
+					</div>
 			</div>
 		</div>
-	</section>
+	</div>
 
 
 	<!-----------------FOOTER----------------------------->

@@ -94,6 +94,17 @@ h3 {
 	margin: 5px;
 }
 
+h3.delproducto {
+	text-align: left;
+	font-size: 35px;
+	margin: 5px;
+}
+
+h4.delproducto1 {
+	font-family: 'Amatic SC', cursive;
+	color: grey;
+}
+
 p{
 	font-family: 'Amatic SC', cursive;
 	color: black;
@@ -156,6 +167,12 @@ h2{
     
 }
 
+.producto {
+	margin: 30px;
+	padding: 10px;
+	line-height: 14px;
+}
+
 input{
     display: block;
     padding: 10px;
@@ -163,6 +180,20 @@ input{
     margin: 30px 0;
     
 }
+
+input.formcantidad {
+width: 55px;
+
+}
+
+input.boton {
+background: #379A92;
+border-style: none;
+color: white;
+
+}
+
+
 input[type="submit"]{
     outline: 0;
     background: rgb(66, 150, 134);

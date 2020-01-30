@@ -5,31 +5,36 @@ $productos = [
 	[
 		"imagen"=>"../css/imagenes/cocina2.jpg",
 		"titulo"=>"Receta",
-		"precio"=>"$650"
+		"precio"=>"$650",
+		"enlace"=> "../productos/receta.html"
 	],
 
 	[
 		"imagen"=>"../css/imagenes/cocina4.jpg",
 		"titulo"=>"Condimentos",
-		"precio"=>"$600"
+		"precio"=>"$600",
+		"enlace"=> "../productos/condimentos.html"
 	],
 
 	[
 		"imagen"=>"../css/imagenes/cocina5.jpg",
 		"titulo"=>"Bon Appetit!",
-		"precio"=>"$750"
+		"precio"=>"$750",
+		"enlace"=> "../productos/Bon Appetit!.html"
 	],
 
 	[
 		"imagen"=>"../css/imagenes/cocina6.jpg",
 		"titulo"=>"El arte de cocinar",
-		"precio"=>"$550"
+		"precio"=>"$550",
+		"enlace"=> "../productos/elartedecocinar.html"
 	],
 
 	[
 		"imagen"=>"../css/imagenes/coina3.jpg",
 		"titulo"=>"Cocina",
-		"precio"=>"$700"
+		"precio"=>"$700",
+		"enlace"=> "../productos/cocina.html"
 	],
 
 
@@ -94,10 +99,10 @@ $productos = [
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="FAQ.html">FAQ</a>
+        <a class="nav-link" href="../FAQ/preguntasFrecuentes.html">FAQ</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="contacto.html">Contacto</a>
+        <a class="nav-link" href="../contacto.html">Contacto</a>
       </li>
 
     </ul>
@@ -133,8 +138,8 @@ $productos = [
 			<?php foreach ($productos as $key => $value): ?>
 				<div class="col-md-3 col-sm-12">
 					<img src="<?=$value["imagen"]?>" alt=" ">
-					<h3><a href=""><?= $value['titulo'] ?></a></h3>
-					<p><a href="#"><?= $value['precio'] ?></a></p>
+					<h3><a href="<?=$value["enlace"]?>"><?= $value['titulo'] ?></a></h3>
+					<p><a href="<?=$value["enlace"]?>"><?= $value['precio'] ?></a></p>
 				</div>
 			<?php endforeach; ?>
 

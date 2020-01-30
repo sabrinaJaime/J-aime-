@@ -5,7 +5,8 @@ $productos = [
 	[
 		"imagen"=>"../css/imagenes/frases1.jpg",
 		"titulo"=>"Frase",
-		"precio"=>"$650"
+		"precio"=>"$650",
+		"enlace"=>"../productos/frases01.html"
 
 	],
 
@@ -55,7 +56,7 @@ $productos = [
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">Inicio</a>
+        <a class="nav-link" href="../index.html">Inicio</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -70,10 +71,10 @@ $productos = [
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="FAQ/preguntasFrecuentes.html">FAQ</a>
+        <a class="nav-link" href="../FAQ/preguntasFrecuentes.html">FAQ</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="contacto.html">Contacto</a>
+        <a class="nav-link" href="../contacto.html">Contacto</a>
       </li>
 
     </ul>
@@ -109,8 +110,8 @@ $productos = [
 			<?php foreach ($productos as $key => $value): ?>
 				<div class="col-md-3 col-sm-12">
 					<img src="<?=$value["imagen"]?>" alt=" ">
-					<h3><a href="#"><?= $value['titulo'] ?></a></h3>
-					<p><a href="#"><?= $value['precio'] ?></a></p>
+					<h3><a href="<?=$value["enlace"]?>"><?= $value['titulo'] ?></a></h3>
+					<p><a href="<?=$value["enlace"]?>"><?= $value['precio'] ?></a></p>
 				</div>
 			<?php endforeach; ?>
 
