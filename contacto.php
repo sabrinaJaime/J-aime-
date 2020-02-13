@@ -1,25 +1,32 @@
 <?php
 
-session_start();
+include 'cabecera.html';
+include 'header-banner.php';
 
-$productos = [
+?>
 
-	[
-		"seccion"=> "ZEN",
-		"imagen"=>"../css/imagenes/zen3.jpg",
-		"titulo"=>"Zen",
-		"precio"=>"$650",
-		"enlace"=>"../productos/mandala03.html"
-	],
+	<!-----------------CONTACTO----------------------------->
+		<section class="contacto">
+			<div class="container">
+			<h1>CONTACTO</h1>
+			<hr>
 
-];
+				<h3>Mitre 170, Rosario, Sante Fe. CP 2000</h3>
+				<h3>123-456-7890  /  jaimevinilos@hotmail.com</h3>
+			<hr>
+			<br>
+			</div>
+		</section>
 
-	include "header-banner.php";
-	include "cuerpo-secciones.php";
-	include "../footer.html";
+
+	<!-----------------CONTACTO----------------------------->
+
+	
+	<?php
+
+	include 'footer.html';
+
 	?>
-
-	<!-----------------FOOTER----------------------------->
 
 
 

@@ -14,20 +14,21 @@ if($_POST){
         array_pop($usuariosGuardados);
         foreach($usuariosGuardados as $usuario){
           $usuarioFinal = json_decode($usuario, true);
-          
+
           if($usuarioFinal["email"] == $_POST["email"]){
              if(password_verify($_POST["password"], $usuarioFinal["password"])){
-                  $_SESSION["emailUsuario"] = $usuarioFinal["email"];      
+                  $_SESSION["emailUsuario"] = $usuarioFinal["email"];
+                  $_SESSION["nombreUsuario"] = $usuarioFinal["nombre"];
                   if(isset($_POST["recordarme"]) && $_POST["recordarme"] == "on"){
 
                       setcookie("emailUsUario", $usuarioFinal["email"], time() + 60 * 60 * 24 * 7 );
                       setcookie("passUsUario", $usuarioFinal["password"], time() + 60 * 60 * 24 * 7 );
                   }
 
-                  header("Location:../inicioBienvenida.php");
+                  header("Location:../indexx.php");
              }
           }
-          
+
         }
     }
 }
@@ -50,13 +51,13 @@ if($_POST){
 		<div class="row">
 			<div class="logo">
 					<div class="col-sm-12">
-						<a href="index.html"><img src="../CSS/Imagenes/logonuevosinsombra.png"></a>
+						<a href="../indexx.php"><img src="../CSS/Imagenes/logonuevosinsombra.png"></a>
 					</div>
 			</div>
 		</div>
 	</div>
     <!-----------------LOGO----------------------------->
-    
+
     	<!-----------------MENU----------------------------->
 		<div class="container menu">
 		<nav class="navbar navbar-expand-lg navbar-light bg-white">
@@ -70,7 +71,7 @@ if($_POST){
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="../index.html">Inicio</a>
+        <a class="nav-link" href="../indexx.php">Inicio</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -90,11 +91,11 @@ if($_POST){
       <li class="nav-item">
         <a class="nav-link" href="contacto.html">Contacto</a>
       </li>
-      
+
     </ul>
-    
+
       <i class="fas fa-shopping-cart carrito"></i>
-    
+
   </div>
 </nav>
 <hr>
@@ -107,20 +108,20 @@ if($_POST){
    <div class="formu">
     <form action="" method="POST" >
         <h2>Iniciar sesión</h2>
-       
+
        <input type="email" placeholder = "&#128272; Email" name = "email" value = "<?= persistirDato($erroresLogin, "email")?>">
        <small class="text-danger"><?= isset($erroresLogin["email"]) ? $erroresLogin["email"] : "" ?></small>
        <input type="password" placeholder = "&#128272; Contraseña" name = "password" value = "">
        <small class="text-danger"><?= isset($erroresLogin["password"]) ? $erroresLogin["password"] : "" ?></small>
        <p>
-       
+
         Recordarme como usuario:<input type="checkbox" id= "recordarme" name="recordarme">
        </p>
        <input type="submit" value="Ingresar">
        <p>
        <a href="registro.php">Crear cuenta</a>
        </p>
-      </form> 
+      </form>
   </div>
     <!-----------------FORMULARIO------------------------->
 
@@ -128,15 +129,15 @@ if($_POST){
 	<section class="footer">
 		<div class="container">
 			<div class="row">
-			
+
 					<div class="col-sm-12">
 						<h3>DESARROLLADO POR EQUIPO ROCKET</h3>
 					</div>
 			</div>
 		</div>
   </section>
-  
- 
+
+
 
 	<!-----------------FOOTER----------------------------->
 
@@ -144,7 +145,7 @@ if($_POST){
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  
+
 
 </body>
 </html>
