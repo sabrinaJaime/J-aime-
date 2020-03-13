@@ -1,49 +1,38 @@
 <?php
-session_start();
-include_once("../controladores/helper.php");
-include_once("../controladores/controladorUsuario.php");
-include_once("../controladores/controladorValidacion.php");
-
-
-$dsn= "mysql:dbname=ecommerce;host=127.0.0.1;port=3306";
-$user='root';
-$pass='';
-
-try{
-  $conexion = new PDO ($dsn, $user, $pass);
-
-}
-catch (PDOException $exception){
-  echo $exception -> getMessage();
-}
 
 
 
-/*$consulta=$conexion->prepare("INSERT into registros values(default,'hola', 'hola', 'hola')");
-      $consulta->execute();*/
-      
+/*try{
+    $conexion = new PDO ($dsn, $user,$pass);
+  
+  }
+  catch (PDOException $exception){
+    echo $exception -> getMessage();
+  }*/
 
-/*$meter=$conexion->prepare("INSERT into hola values('default', $usuario)");
-$meter->execute();*/
+  $user='root';
+  $pass='';
+  $host='localhost';
+  $db='hola';
+  $conexion = new PDO("mysql:host=$host;dbname=$db;", $user, $pass);
+  var_dump($conexion);
 
-$erroresRegistro = "";
+  /*$db= new PDO("mysql:host=localhost;dbname=pruebita;port=3306");*/
 
-if($_POST){
-    $erroresRegistro = validarFormulario($_POST);
-    if(count($erroresRegistro) == 0){
+
+  if($_POST){
      $usuario=$_POST["nombre"];
       $email=$_POST["email"];
       $password=$_POST["password"];
       $hashing=password_hash($password, PASSWORD_DEFAULT);
-      $consulta=$conexion->prepare("INSERT into registros values('default', '$usuario', '$email', '$hashing')");
+      $consulta=$conexion->prepare("INSERT into pruebita values('default', '$usuario', '$email', '$hashing')");
       $consulta->execute();
-      
-     
+      echo "no hay errores";
     }
-    header("Location:logIn.php");
-}
+
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -121,17 +110,16 @@ if($_POST){
         <h2>Crear usuario</h2>
         <br>
         <!-- (CONDICION) ? A : B -->
-        <input type="text" name="nombre" placeholder="Nombre y apellido" value="<?= persistirDato($erroresRegistro, "nombre")?>">
-        <small class="text-danger"><?= isset($erroresRegistro["nombre"]) ? $erroresRegistro["nombre"] : "" ?></small>
-
-        <input type="email" name="email" placeholder="Email" value="<?= persistirDato($erroresRegistro, "email")?>">
-        <small class="text-danger"><?= isset($erroresRegistro["email"]) ? $erroresRegistro["email"] : "" ?></small>
+        <input type="text" name="nombre" placeholder="Nombre y apellido" value="">
+       
+        <input type="email" name="email" placeholder="Email" value="">
+        
        
         <input type="password" name="password" placeholder="Contraseña" >
-        <small class="text-danger"><?= isset($erroresRegistro["password"]) ? $erroresRegistro["password"] : "" ?></small>
+       
        
         <input type="password" name="repassword" placeholder="Repetir contraseña" > 
-        <small class="text-danger"><?= isset($erroresRegistro["repassword"]) ? $erroresRegistro["repassword"] : "" ?></small>
+        
         <br>
         <input type="submit" name="Enviar" value="Registrarse" class="bot">
           

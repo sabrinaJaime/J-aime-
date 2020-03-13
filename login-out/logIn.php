@@ -3,19 +3,47 @@ session_start();
 include_once("../controladores/helper.php");
 include_once("../controladores/controladorUsuario.php");
 include_once("../controladores/controladorValidacion.php");
+include_once("../Clases/usuarios.php");
+
+$dsn= "mysql:dbname=ecommerce;host=127.0.0.1;port=3306";
+$user='root';
+$pass='';
+
+try{
+  $conexion = new PDO ($dsn, $user, $pass);
+
+}
+catch (PDOException $exception){
+  echo $exception -> getMessage();
+}
+
+var_dump($conexion);
 
 $erroresLogin = "";
 
 if($_POST){
     $erroresLogin = validarFormulario($_POST);
     if(count($erroresLogin) == 0 ){
-        $usuariosGuardados = file_get_contents("usuarios.json");
-        $usuariosGuardados = explode(PHP_EOL, $usuariosGuardados);
-        array_pop($usuariosGuardados);
-        foreach($usuariosGuardados as $usuario){
-          $usuarioFinal = json_decode($usuario, true);
+        $consulta=$conexion->prepare("SELECT * from registros");
+        $consulta->execute();
+        $usuarios=$consulta->fetchAll(PDO::FETCH_ASSOC);
+         foreach($usuarios as $usuario){
+           if($usuario["email"] == $_POST["email"]){
+             if(password_verify($_POST["password"], $usuario["password"])){
+              $_SESSION["emailUsuario"] = $usuario["email"];
+              $_SESSION["nombreUsuario"] = $usuario["nombre"];
+              if(isset($_POST["recordarme"]) && $_POST["recordarme"] == "on"){
 
-          if($usuarioFinal["email"] == $_POST["email"]){
+                setcookie("emailUsUario", $usuario["email"], time() + 60 * 60 * 24 * 7 );
+                setcookie("passUsUario", $usuario["password"], time() + 60 * 60 * 24 * 7 );
+            }
+
+            header("Location:../indexx.php");
+             }
+           }
+         }
+
+          /*if($usuarioFinal["email"] == $_POST["email"]){
              if(password_verify($_POST["password"], $usuarioFinal["password"])){
                   $_SESSION["emailUsuario"] = $usuarioFinal["email"];
                   $_SESSION["nombreUsuario"] = $usuarioFinal["nombre"];
@@ -27,9 +55,9 @@ if($_POST){
 
                   header("Location:../indexx.php");
              }
-          }
+          }*/
 
-        }
+       /* }*/
     }
 }
 ?>
